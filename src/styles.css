@@ -53,6 +53,7 @@
 
 #description {
   font-size: 10px;
+  text-transform: capitalize;
 }
 #temp {
   font-size: 50px;
