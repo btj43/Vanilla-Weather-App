@@ -56,11 +56,22 @@
   text-transform: capitalize;
 }
 #temp {
-  font-size: 50px;
+  font-size: 40px;
   font-weight: bolder;
 }
+
+#celcius {
+  font-size: 10px;
+}
+
+#faren {
+  font-size: 10px;
+}
+
 .weather-info {
   list-style-type: none;
+  font-size: 12px;
+  padding: 0px;
 }
 
 .git {

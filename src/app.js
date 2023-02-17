@@ -31,11 +31,17 @@ liveDate.innerHTML = todayDate(currentTime);
 function displayTemp(response) {
   let cityName = document.querySelector("#city");
   let description = document.querySelector("#description");
+  let icon = document.querySelector("#iconImg");
   let temperature = document.querySelector("#temp");
   let windSpeed = document.querySelector("#wind");
   let humidity = document.querySelector("#humidity");
+  let iconCode = response.data.weather[0].icon;
   cityName.innerHTML = `${response.data.name}, ${response.data.sys.country}`;
   description.innerHTML = response.data.weather[0].description;
+  icon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${iconCode}@2x.png`
+  );
   temperature.innerHTML = Math.round(response.data.main.temp);
   windSpeed.innerHTML = `${Math.round(response.data.wind.speed)} m/s`;
   humidity.innerHTML = Math.round(response.data.main.humidity);
