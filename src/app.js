@@ -28,7 +28,7 @@ let liveDate = document.querySelector("#date");
 liveDate.innerHTML = todayDate(currentTime);
 
 //want to get data from openweather then push into 4 different places
-function displayTemp(response) {
+function displayWeather(response) {
   let cityName = document.querySelector("#city");
   let description = document.querySelector("#description");
   let icon = document.querySelector("#iconImg");
@@ -50,7 +50,7 @@ function displayTemp(response) {
 function search(city) {
   let apiKey = "0f8bc384a7c31b717a18cfe38a95ae06";
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  axios.get(url).then(displayTemp);
+  axios.get(url).then(displayWeather);
 }
 
 function handleSubmit(event) {
@@ -59,7 +59,22 @@ function handleSubmit(event) {
   search(cityInputElement.value);
 }
 
+function getLocation(position) {
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+  let apiKey = "0f8bc384a7c31b717a18cfe38a95ae06";
+  let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+  axios.get(url).then(displayWeather);
+}
+
+function locationSubmit(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(getLocation);
+}
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
-search("London");
+let locationForm = document.querySelector("#location-form");
+locationForm.addEventListener("submit", locationSubmit);
+
+search("Bangkok");
