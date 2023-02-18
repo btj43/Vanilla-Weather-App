@@ -40,7 +40,7 @@ function displayTemp(response) {
   description.innerHTML = response.data.weather[0].description;
   icon.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${iconCode}@2x.png`
+    `https://openweathermap.org/img/wn/${iconCode}@2x.png`
   );
   temperature.innerHTML = Math.round(response.data.main.temp);
   windSpeed.innerHTML = `${Math.round(response.data.wind.speed)} m/s`;
