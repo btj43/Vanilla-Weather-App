@@ -47,8 +47,19 @@ function displayTemp(response) {
   humidity.innerHTML = Math.round(response.data.main.humidity);
 }
 
-let city = "London";
-let apiKey = "0f8bc384a7c31b717a18cfe38a95ae06";
-let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+function search(city) {
+  let apiKey = "0f8bc384a7c31b717a18cfe38a95ae06";
+  let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(url).then(displayTemp);
+}
 
-axios.get(url).then(displayTemp);
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value);
+}
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
+
+search("London");
