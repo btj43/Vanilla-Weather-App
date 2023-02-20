@@ -36,13 +36,16 @@ function displayWeather(response) {
   let windSpeed = document.querySelector("#wind");
   let humidity = document.querySelector("#humidity");
   let iconCode = response.data.weather[0].icon;
+
+  celciusTemp = response.data.main.temp;
+
   cityName.innerHTML = `${response.data.name}, ${response.data.sys.country}`;
   description.innerHTML = response.data.weather[0].description;
   icon.setAttribute(
     "src",
     `https://openweathermap.org/img/wn/${iconCode}@2x.png`
   );
-  temperature.innerHTML = Math.round(response.data.main.temp);
+  temperature.innerHTML = Math.round(celciusTemp);
   windSpeed.innerHTML = `${Math.round(response.data.wind.speed)} m/s`;
   humidity.innerHTML = Math.round(response.data.main.humidity);
 }
@@ -78,3 +81,22 @@ let locationForm = document.querySelector("#location-form");
 locationForm.addEventListener("submit", locationSubmit);
 
 search("Bangkok");
+
+function showFaren(event) {
+  event.preventDefault();
+  let farenTemp = (celciusTemp * 9) / 5 + 32;
+  let tempElement = document.querySelector("#temp");
+  tempElement.innerHTML = Math.round(farenTemp);
+}
+
+function showCelcius(event) {
+  event.preventDefault();
+  let tempElement = document.querySelector("#temp");
+  tempElement.innerHTML = Math.round(celciusTemp);
+}
+
+let faren = document.querySelector("#faren");
+faren.addEventListener("click", showFaren);
+
+let celcius = document.querySelector("#celcius");
+celcius.addEventListener("click", showCelcius);

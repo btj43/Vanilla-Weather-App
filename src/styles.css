@@ -31,7 +31,7 @@
 }
 
 #location {
-  max-width: 200px;
+  max-width: 150px;
   display: flex;
   margin: 0 auto;
   background-color: #8d6298;
@@ -60,12 +60,10 @@
   font-weight: bolder;
 }
 
-#celcius {
-  font-size: 10px;
-}
-
-#faren {
-  font-size: 10px;
+.units {
+  font-size: 15px;
+  text-decoration: none;
+  color: #8d6298;
 }
 
 .weather-info {
