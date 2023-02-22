@@ -1,5 +1,5 @@
 .weather-app {
-  max-width: 650px;
+  max-width: 700px;
   padding: 10px;
   border: 1px solid #8d6298;
   border-radius: 10px;
@@ -87,7 +87,19 @@
   font-size: 12px;
   padding: 0px;
 }
+.forecast-day {
+  text-align: center;
+  font-size: 12px;
+}
 
+.forecast-temp {
+  text-align: center;
+  font-size: 12px;
+}
+
+#lower-temp {
+  color: #767779;
+}
 .git {
   font-size: 12px;
   text-decoration: none;
