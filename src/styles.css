@@ -26,6 +26,11 @@
   border-color: #8d6298;
 }
 
+#city-input {
+  background-color: #eddfe9;
+  border-color: #8d6298;
+}
+
 #searchbutton {
   background-color: #8d6298;
   border-color: #8d6298;
@@ -103,5 +108,10 @@
 .git {
   font-size: 12px;
   text-decoration: none;
+  color: #8d6298;
+  padding-top: 15px;
+}
+
+#link {
   color: #8d6298;
 }
