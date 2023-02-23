@@ -27,7 +27,32 @@ let currentTime = new Date();
 let liveDate = document.querySelector("#date");
 liveDate.innerHTML = todayDate(currentTime);
 
-//want to get data from openweather then push into 4 different places
+function displayForecast() {
+  let forecastElement = document.querySelector("#weather-forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thurs", "Fri", "Sat", "Sun", "Mon", "Tues"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2">
+    <div class="forecast-day">${day}</div>
+    <img
+      src="https://openweathermap.org/img/wn/10d@2x.png"
+      alt="clear"
+      id="forecast-img"
+      width="100%"
+    />
+    <div class="forecast-temp">
+      <span id="higher-temp">X°</span>
+      <span id="lower-temp">X°</span>
+    </div>
+  </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function displayWeather(response) {
   let cityName = document.querySelector("#city");
   let description = document.querySelector("#description");
@@ -100,3 +125,5 @@ faren.addEventListener("click", showFaren);
 
 let celcius = document.querySelector("#celcius");
 celcius.addEventListener("click", showCelcius);
+
+displayForecast();
